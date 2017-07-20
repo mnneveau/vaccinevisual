@@ -8,7 +8,7 @@ def output_screen():
     pdf_file = "vaccine.pdf"
     ts = t.getscreen()
     ts.getcanvas().postscript(file=ps_file)
-    os.system('convert  ' + ps_file + " " + pdf_file)
+    os.system('convert -density 100 -quality 100 ' + ps_file + " " + pdf_file)
 
 #get random color code
 def get_random_color():
@@ -26,9 +26,9 @@ def draw_junction_w_label(junct_score):
     t.forward(10)
     t.back(20)
     t.pu()
-    t.back(20)
+    t.back(22)
     t.write(junct_score, align="center")
-    t.forward(20)
+    t.forward(22)
     t.pd()
     t.forward(10)
     t.setheading(reset)
@@ -50,9 +50,9 @@ def draw_arc_w_label_f(peptide, length):
     t.pu()
     reset = t.heading()
     t.left(90)
-    t.forward(58)
+    t.forward(60)
     t.write(peptide, align="center")
-    t.back(58)
+    t.back(60)
     t.setheading(reset)
     t.pd()
     t.circle(-150, (conversion_factor * length) / 2)
@@ -108,8 +108,15 @@ myWin = turtle.Screen()
 turtle.colormode(255)
 #sets turtle orientation
 turtle.mode("logo")
-t.speed("slow")
-#t.hideturtle()
+t.speed(0)
+t.hideturtle()
+t.pu()
+t.setpos(-200,200)
+t.write("Vaccine Design", font=("Arial", 18, "bold"))
+t.pd()
+t.pu()
+t.setpos(-150,0)
+t.pd()
 t.pensize(5)
 angle_parsed = 0
 #white space in circle before genes

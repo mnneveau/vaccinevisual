@@ -7,7 +7,7 @@ def output_screen():
     pdf_file = "vaccine.pdf"
     ts = t.getscreen()
     ts.getcanvas().postscript(file=ps_file)
-    os.system('convert -density 100 -quality 100 ' + ps_file + " " + pdf_file)
+    os.system('convert -density 100 -quality 200 ' + ps_file + " " + pdf_file)
     return()
 
 def draw_wht_space():
@@ -62,11 +62,11 @@ def draw_arc_peptide(peptide, length, count, angle):
     t.left(90)
     t.forward(pep_id_space)
     if (angle > 80 and angle < 100) or (angle > 260 and angle < 280):
-        t.write(peptide, align="center", font=("Arial", 9, "bold"))
+        t.write(peptide, align="center", font=("Arial", 10, "bold"))
     elif (angle > 0 and angle < 90) or (angle > 270 and angle < 360):
-        t.write(peptide, align="right", font=("Arial", 9, "bold"))
+        t.write(peptide, align="right", font=("Arial", 10, "bold"))
     else:
-        t.write(peptide, align="left", font=("Arial", 9, "bold"))
+        t.write(peptide, align="left", font=("Arial", 10, "bold"))
     t.back(pep_id_space)
     t.setheading(reset)
     t.pd()
